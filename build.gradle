@@ -1,43 +1,34 @@
 buildscript {
     repositories {
-        maven {
-            url 'https://dl.bintray.com/giancosta86/Hephaestus'
-        }
+        //TODO! Del this
+        mavenLocal()
 
-        jcenter()
+        mavenCentral()
     }
 
     dependencies {
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
-        classpath 'info.gianlucacosta.moonlicense:moonlicense-gradle:4.3'
-        classpath 'info.gianlucacosta.aurora:aurora:7.0'
+        classpath 'info.gianlucacosta.aurora:aurora:10.0.0-SNAPSHOT'
     }
 }
 
 
 apply plugin: 'scala'
 apply plugin: 'maven'
-apply plugin: 'com.jfrog.bintray'
-apply plugin: 'info.gianlucacosta.moonlicense'
 apply plugin: 'info.gianlucacosta.aurora'
 
 
 group = 'info.gianlucacosta.graphsj'
 archivesBaseName = 'graphsj-sdk'
-version = '6.1'
+version = '7.0.0-SNAPSHOT'
 
 description = 'GraphsJ - Scenario Development Kit (SDK)'
 
-project.ext.facebookPage = 'https://www.facebook.com/graphsj'
-
 
 dependencies {
-    generatedCompile 'org.scala-lang:scala-library:2.11.8'
-
     compile 'org.scala-lang:scala-library:2.11.8'
 
-    compile 'info.gianlucacosta.eighthbridge:eighthbridge:8.2'
-    compile 'info.gianlucacosta.lambdaprism:lambdaprism:3.0'
+    compile 'info.gianlucacosta.eighthbridge:eighthbridge:9.0.0-SNAPSHOT'
+    compile 'info.gianlucacosta.lambdaprism:lambdaprism:4.0.0-SNAPSHOT'
 }
 
 
@@ -48,30 +39,5 @@ aurora {
         name = 'Gianluca Costa'
         email = 'gianluca@gianlucacosta.info'
         url = 'http://gianlucacosta.info/'
-    }
-
-    bintray {
-        repo = 'Hephaestus'
-        licenses = ['Apache-2.0']
-        labels = [
-                'GraphsJ',
-                'graphs',
-                'scenarios',
-                'development',
-                'SDK',
-                'library',
-                'Scala'
-        ]
-    }
-}
-
-
-moonLicense {
-    license = apache2
-
-    productInfo {
-        productName = 'GraphsJ - SDK'
-        inceptionYear = 2009
-        copyrightHolder = 'Gianluca Costa'
     }
 }
