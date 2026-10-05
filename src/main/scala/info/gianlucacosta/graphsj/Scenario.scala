@@ -1,7 +1,6 @@
 package info.gianlucacosta.graphsj
 
-import info.gianlucacosta.eighthbridge.fx.canvas.GraphCanvasController
-import info.gianlucacosta.eighthbridge.graphs.point2point.visual.{VisualGraph, VisualLink, VisualVertex}
+import info.gianlucacosta.eighthbridge.fx.canvas.{GraphCanvasController, VisualGraph, VisualLink, VisualVertex}
 
 /**
   * A descriptor for an interactive problem that can be plugged into the application.
@@ -41,7 +40,7 @@ G <: VisualGraph[V, L]
   def showSettings(designGraph: G): Option[G]
 
   /**
-    * Creates the design graph. You could want to return an instance of DefaultVisualGraph.
+    * Creates the design graph. You could want to return an instance of BasicVisualGraph.
     *
     * @return The graph interactively changed by the user at design time  (=> when not running the algorithm)
     */
