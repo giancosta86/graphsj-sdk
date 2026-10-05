@@ -13,9 +13,9 @@ import info.gianlucacosta.eighthbridge.graphs.point2point.visual.{VisualGraph, V
   *
   */
 trait Scenario[
-V <: VisualVertex[V],
-L <: VisualLink[L],
-G <: VisualGraph[V, L, G]
+V <: VisualVertex,
+L <: VisualLink,
+G <: VisualGraph[V, L]
 ] {
   /**
     * Scenario name, as shown in the "Scenario name" dialog. Can be different from the name

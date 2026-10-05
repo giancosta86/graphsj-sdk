@@ -7,7 +7,7 @@ import scala.annotation.tailrec
 /**
   * Interactive lightweight algorithm, based on the VisualGraph drawn by the user
   */
-trait Algorithm[V <: VisualVertex[V], L <: VisualLink[L], G <: VisualGraph[V, L, G]] {
+trait Algorithm[V <: VisualVertex, L <: VisualLink, G <: VisualGraph[V, L]] {
   /**
     * Executes a step of the algorithm.
     *

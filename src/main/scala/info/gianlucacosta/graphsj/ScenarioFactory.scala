@@ -7,9 +7,9 @@ import info.gianlucacosta.eighthbridge.graphs.point2point.visual.{VisualGraph, V
   *
   */
 trait ScenarioFactory[
-V <: VisualVertex[V],
-L <: VisualLink[L],
-G <: VisualGraph[V, L, G]
+V <: VisualVertex,
+L <: VisualLink,
+G <: VisualGraph[V, L]
 ] {
   /**
     * The name of the scenario, as shown in the "New problem..." dialog withing GraphsJ

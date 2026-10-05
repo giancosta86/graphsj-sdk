@@ -24,6 +24,13 @@ trait OutputConsole {
   def writeln()
 
   /**
+   * Prints out "<description> = <value>"
+   */
+  def writeln(description: String, value: Any): Unit = {
+    writeln(s"${description} = ${value}")
+  }
+
+  /**
     * Prints a header
     *
     * @param header The header text
