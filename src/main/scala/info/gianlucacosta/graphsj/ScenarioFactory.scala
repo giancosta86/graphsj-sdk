@@ -1,6 +1,6 @@
 package info.gianlucacosta.graphsj
 
-import info.gianlucacosta.eighthbridge.fx.canvas.{VisualGraph, VisualLink, VisualVertex}
+import info.gianlucacosta.eighthbridge.fx.{VisualGraph, VisualLink, VisualVertex}
 
 /**
   * Factory creating a scenario

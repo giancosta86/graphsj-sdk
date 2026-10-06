@@ -1,6 +1,6 @@
 package info.gianlucacosta.graphsj
 
-import info.gianlucacosta.eighthbridge.fx.canvas.{GraphCanvasController, VisualGraph, VisualLink, VisualVertex}
+import info.gianlucacosta.eighthbridge.fx.{GraphCanvasController, VisualGraph, VisualLink, VisualVertex}
 
 /**
   * A descriptor for an interactive problem that can be plugged into the application.
