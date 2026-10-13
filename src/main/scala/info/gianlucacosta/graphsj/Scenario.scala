@@ -1,6 +1,7 @@
 package info.gianlucacosta.graphsj
 
-import info.gianlucacosta.eighthbridge.fx.{GraphCanvasController, VisualGraph, VisualLink, VisualVertex}
+import info.gianlucacosta.eighthbridge.fx.GraphCanvasController
+import info.gianlucacosta.eighthbridge.fx.graph.{VisualArc, VisualGraph, VisualVertex}
 
 /**
   * A descriptor for an interactive problem that can be plugged into the application.
@@ -13,8 +14,8 @@ import info.gianlucacosta.eighthbridge.fx.{GraphCanvasController, VisualGraph, V
   */
 trait Scenario[
 V <: VisualVertex,
-L <: VisualLink,
-G <: VisualGraph[V, L]
+A <: VisualArc,
+G <: VisualGraph[V, A]
 ] {
   /**
     * Scenario name, as shown in the "Scenario name" dialog. Can be different from the name
@@ -48,7 +49,7 @@ G <: VisualGraph[V, L]
 
   /**
     * Creates the GraphCanvas controller to be used at design time.
-    * In particular, such controller says how to render graph components (vertexes, links, ...)
+    * In particular, such controller says how to render graph components (vertexes, arcs, ...)
     * and what the user can interactively do.
     *
     * Usually, you'll have to create a custom class implementing BasicController
@@ -62,7 +63,7 @@ G <: VisualGraph[V, L]
     *
     * @return The GraphCanvas controller for the design time
     */
-  def createDesignController(): GraphCanvasController[V, L, G]
+  def createDesignController(): GraphCanvasController
 
   /**
     * Creates the GraphCanvas controller to be used when running the algorithm.
@@ -72,7 +73,7 @@ G <: VisualGraph[V, L]
     *
     * @return The GraphCanvas controller for the runtime phase
     */
-  def createRuntimeController(): GraphCanvasController[V, L, G]
+  def createRuntimeController(): GraphCanvasController
 
   /**
     * Create the algorithm instance when the runtime phase starts; the very same algorithm
@@ -80,7 +81,7 @@ G <: VisualGraph[V, L]
     *
     * @return The algorithm instance for a single execution
     */
-  def createAlgorithm(): Algorithm[V, L, G]
+  def createAlgorithm(): Algorithm[V, A, G]
 
 
   /**

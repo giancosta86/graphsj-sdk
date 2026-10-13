@@ -1,13 +1,13 @@
 package info.gianlucacosta.graphsj
 
-import info.gianlucacosta.eighthbridge.fx.{VisualGraph, VisualLink, VisualVertex}
+import info.gianlucacosta.eighthbridge.fx.graph.{VisualArc, VisualGraph, VisualVertex}
 
 import scala.annotation.tailrec
 
 /**
   * Interactive lightweight algorithm, based on the VisualGraph drawn by the user
   */
-trait Algorithm[V <: VisualVertex, L <: VisualLink, G <: VisualGraph[V, L]] {
+trait Algorithm[V <: VisualVertex, A <: VisualArc, G <: VisualGraph[V, A]] {
   /**
     * Executes a step of the algorithm.
     *
@@ -21,7 +21,7 @@ trait Algorithm[V <: VisualVertex, L <: VisualLink, G <: VisualGraph[V, L]] {
     * @param console   Handle for writing to the application's text console
     * @return the pair (NewGraph, TheAlgorithmContinues) where:
     *         <ul>
-    *         <li><b>NewGraph</b> is the new visual graph (for example, with links of the
+    *         <li><b>NewGraph</b> is the new visual graph (for example, with arcs of the
     *         partial solution having a dedicated color). It <em>cannot</em> be null - at least return the graph itself</li>
     *         <li><b>TheAlgorithmContinues</b> is a boolean flag telling the framework that more steps
     *         should be performed by the algorithm</li>

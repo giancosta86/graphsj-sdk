@@ -1,6 +1,6 @@
 package info.gianlucacosta.graphsj
 
-import info.gianlucacosta.eighthbridge.fx.{VisualGraph, VisualLink, VisualVertex}
+import info.gianlucacosta.eighthbridge.fx.graph.{VisualArc, VisualGraph, VisualVertex}
 
 /**
   * Factory creating a scenario
@@ -8,8 +8,8 @@ import info.gianlucacosta.eighthbridge.fx.{VisualGraph, VisualLink, VisualVertex
   */
 trait ScenarioFactory[
 V <: VisualVertex,
-L <: VisualLink,
-G <: VisualGraph[V, L]
+A <: VisualArc,
+G <: VisualGraph[V, A]
 ] {
   /**
     * The name of the scenario, as shown in the "New problem..." dialog withing GraphsJ
@@ -23,7 +23,7 @@ G <: VisualGraph[V, L]
     *
     * @return The scenario
     */
-  def createScenario: Option[Scenario[V, L, G]]
+  def createScenario: Option[Scenario[V, A, G]]
 
 
   override def toString: String =
