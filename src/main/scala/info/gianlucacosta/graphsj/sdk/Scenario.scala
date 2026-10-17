@@ -1,0 +1,112 @@
+package info.gianlucacosta.graphsj.sdk
+
+import info.gianlucacosta.eighthbridge.fx.GraphCanvasController
+import info.gianlucacosta.eighthbridge.fx.graph.{VisualArc, VisualGraph, VisualVertex}
+import info.gianlucacosta.eighthbridge.theory.{Arc, DirectedGraph, Vertex}
+
+/**
+ * A descriptor for an interactive problem that can be plugged into the application.
+ *
+ * You also need to implement a ScenarioFactory to instantiate it.
+ *
+ * Deployment is very easy, as you just need to package your scenarios and the related
+ * factories in a JAR file, to be deployed to GraphsJ's scenarios directory.
+ *
+ */
+trait Scenario[
+  V <: Vertex,
+  A <: Arc,
+  G <: DirectedGraph[V, A]
+] {
+  /**
+   * Scenario name, as shown in the "Scenario name" dialog. Can be different from the name
+   * provided by the related ScenarioFactory.
+   */
+  val name: String
+
+  /**
+   * Shows help for the scenario - for example, opening a dialog, or a web page
+   */
+  def showHelp(): Unit
+
+  /**
+   * Show settings for the scenario. Usually, this means showing a dialog, but you could also
+   * notify the user that no settings are available.
+   *
+   * Please, note that a settings dialog should actually alter var fields within the scenario
+   * instance: such instance is always saved by the application with the design graph whenever
+   * the user saves their current workspace.
+   *
+   * @param designGraph The design graph
+   */
+  def showSettings(designGraph: G): Option[G]
+
+  /**
+   * Creates the design graph, which must be a VisualGraph.
+   *
+   * @return The graph interactively changed by the user at design time  (=> when not running the algorithm)
+   */
+  def createDesignGraph(): VisualGraph
+
+  /**
+   * Creates the GraphCanvas controller to be used at design time.
+   * In particular, such controller says how to render graph components (vertexes, arcs, ...)
+   * and what the user can interactively do.
+   *
+   * Usually, you'll have to create a custom class implementing BasicController
+   * or one or more of its subtraits.
+   *
+   * This method is called:
+   * <ul>
+   * <li>As soon as the scenario is created, to inject it into a new graph canvas</li>
+   * <li>When the settings are changed</li>
+   * </ul>
+   *
+   * @return The GraphCanvas controller for the design time
+   */
+  def createDesignController(): GraphCanvasController
+
+  /**
+   * Creates the GraphCanvas controller to be used when running the algorithm.
+   *
+   * Usually, a DragDropController is a good choice, as it limits
+   * the user's interactivity to drag&drop only.
+   *
+   * @return The GraphCanvas controller for the runtime phase
+   */
+  def createRuntimeController(): GraphCanvasController
+
+  /**
+   * Create the algorithm instance when the runtime phase starts; the very same algorithm
+   * instance is then used <i>at every algorithm step</i> until that execution ends.
+   *
+   * @return The algorithm instance for a single execution
+   */
+  def createAlgorithm(): Algorithm[V, A, G]
+
+
+  /**
+   * Returns a list of CSS stylesheets to be added to the scene when loading the scenario.
+   *
+   * Usually, unless you want to introduce very specific customization,
+   * the very first stylesheet to add should be <b>BasicStyles.resourceUrl.toExternalForm</b>,
+   * provided by the EighthBridge library
+   *
+   * @return A list of CSS URLs as expected by JavaFX
+   */
+  def stylesheets: List[String]
+
+
+  /**
+   * The number of algorithm steps that GraphsJ can perform before asking the user
+   * if a <i>full</i> execution can go on. Does not affect step-by-step run and Algorithm methods.
+   *
+   * @return The interval (in steps) after which the framework pauses the execution with
+   *         a confirmation dialog. If a value <= 0 is returned, no confirmation dialog will be shown
+   */
+  def runStepsBeforePausing: Int
+
+
+  override def toString: String =
+    name
+}
