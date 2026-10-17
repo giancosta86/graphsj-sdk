@@ -1,4 +1,4 @@
-package info.gianlucacosta.graphsj
+package info.gianlucacosta.graphsj.sdk
 
 /**
  * OutputConsole implementation writing to the standard output

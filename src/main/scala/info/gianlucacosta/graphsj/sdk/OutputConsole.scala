@@ -1,4 +1,4 @@
-package info.gianlucacosta.graphsj
+package info.gianlucacosta.graphsj.sdk
 
 /**
  * Text output console
