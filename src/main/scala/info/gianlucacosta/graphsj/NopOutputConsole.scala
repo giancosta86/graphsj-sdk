@@ -1,8 +1,8 @@
 package info.gianlucacosta.graphsj
 
 /**
-  * OutputConsole implementation doing just nothing
-  */
+ * OutputConsole implementation doing just nothing
+ */
 object NopOutputConsole extends OutputConsole {
   override def write(value: Any): Unit = {}
 

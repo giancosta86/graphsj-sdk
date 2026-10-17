@@ -1,8 +1,8 @@
 package info.gianlucacosta.graphsj
 
 /**
-  * OutputConsole implementation writing to the standard output
-  */
+ * OutputConsole implementation writing to the standard output
+ */
 object SystemOutConsole extends OutputConsole {
   override def write(value: Any): Unit =
     print(value)

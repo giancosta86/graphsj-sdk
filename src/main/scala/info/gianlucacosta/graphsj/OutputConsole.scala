@@ -1,26 +1,26 @@
 package info.gianlucacosta.graphsj
 
 /**
-  * Text output console
-  */
+ * Text output console
+ */
 trait OutputConsole {
   /**
-    * Prints the string representation of a value
-    *
-    * @param value
-    */
+   * Prints the string representation of a value
+   *
+   * @param value
+   */
   def write(value: Any)
 
   /**
-    * Prints the string representation of a value, followed by a newline character
-    *
-    * @param value
-    */
+   * Prints the string representation of a value, followed by a newline character
+   *
+   * @param value
+   */
   def writeln(value: Any)
 
   /**
-    * Prints a newline character
-    */
+   * Prints a newline character
+   */
   def writeln()
 
   /**
@@ -31,10 +31,10 @@ trait OutputConsole {
   }
 
   /**
-    * Prints a header
-    *
-    * @param header The header text
-    */
+   * Prints a header
+   *
+   * @param header The header text
+   */
   def writeHeader(header: String): Unit = {
     val headerLine =
       "-" * header.length

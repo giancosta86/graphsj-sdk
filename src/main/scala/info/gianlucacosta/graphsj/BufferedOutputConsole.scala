@@ -1,10 +1,10 @@
 package info.gianlucacosta.graphsj
 
 /**
-  * OutputConsole implementation whose text can be inspected.
-  *
-  * Very useful for testing.
-  */
+ * OutputConsole implementation whose text can be inspected.
+ *
+ * Very useful for testing.
+ */
 class BufferedOutputConsole extends OutputConsole {
   private val stringBuilder =
     new StringBuilder
