@@ -2,6 +2,7 @@ package info.gianlucacosta.graphsj.sdk
 
 import info.gianlucacosta.eighthbridge.fx.GraphCanvasController
 import info.gianlucacosta.eighthbridge.fx.graph.{VisualArc, VisualGraph, VisualVertex}
+import info.gianlucacosta.eighthbridge.theory.{Arc, DirectedGraph, Vertex}
 
 /**
  * A descriptor for an interactive problem that can be plugged into the application.
@@ -13,9 +14,9 @@ import info.gianlucacosta.eighthbridge.fx.graph.{VisualArc, VisualGraph, VisualV
  *
  */
 trait Scenario[
-  V <: VisualVertex,
-  A <: VisualArc,
-  G <: VisualGraph[V, A]
+  V <: Vertex,
+  A <: Arc,
+  G <: DirectedGraph[V, A]
 ] {
   /**
    * Scenario name, as shown in the "Scenario name" dialog. Can be different from the name
@@ -41,11 +42,11 @@ trait Scenario[
   def showSettings(designGraph: G): Option[G]
 
   /**
-   * Creates the design graph. You could want to return an instance of BasicVisualGraph.
+   * Creates the design graph, which must be a VisualGraph.
    *
    * @return The graph interactively changed by the user at design time  (=> when not running the algorithm)
    */
-  def createDesignGraph(): G
+  def createDesignGraph(): VisualGraph
 
   /**
    * Creates the GraphCanvas controller to be used at design time.
