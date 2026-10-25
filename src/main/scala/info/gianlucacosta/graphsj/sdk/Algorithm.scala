@@ -1,7 +1,7 @@
 package info.gianlucacosta.graphsj.sdk
 
 import info.gianlucacosta.eighthbridge.fx.graph.{VisualArc, VisualGraph, VisualVertex}
-import info.gianlucacosta.eighthbridge.theory.{Arc, DirectedGraph, Vertex}
+import info.gianlucacosta.eighthbridge.graphs.{Arc, DirectedGraph, Vertex}
 
 import scala.annotation.tailrec
 

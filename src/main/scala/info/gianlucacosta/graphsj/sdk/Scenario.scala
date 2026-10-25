@@ -2,7 +2,7 @@ package info.gianlucacosta.graphsj.sdk
 
 import info.gianlucacosta.eighthbridge.fx.GraphCanvasController
 import info.gianlucacosta.eighthbridge.fx.graph.{VisualArc, VisualGraph, VisualVertex}
-import info.gianlucacosta.eighthbridge.theory.{Arc, DirectedGraph, Vertex}
+import info.gianlucacosta.eighthbridge.graphs.{Arc, DirectedGraph, Vertex}
 
 /**
  * A descriptor for an interactive problem that can be plugged into the application.
