@@ -2,7 +2,8 @@ package info.gianlucacosta.graphsj.sdk
 
 import info.gianlucacosta.eighthbridge.fx.GraphCanvasController
 import info.gianlucacosta.eighthbridge.fx.graph.{VisualArc, VisualGraph, VisualVertex}
-import info.gianlucacosta.eighthbridge.graphs.{Arc, DirectedGraph, Vertex}
+import info.gianlucacosta.eighthbridge.graphs.Vertex
+import info.gianlucacosta.eighthbridge.graphs.directed.{Arc, DirectedGraph}
 
 /**
  * A descriptor for an interactive problem that can be plugged into the application.
@@ -15,7 +16,7 @@ import info.gianlucacosta.eighthbridge.graphs.{Arc, DirectedGraph, Vertex}
  */
 trait Scenario[
   V <: Vertex,
-  A <: Arc,
+  A <: Arc, //TODO! Use Link instead of Arc?
   G <: DirectedGraph[V, A]
 ] {
   /**
