@@ -1,16 +1,15 @@
 package info.gianlucacosta.graphsj.sdk
 
-import info.gianlucacosta.eighthbridge.fx.graph.{VisualArc, VisualGraph, VisualVertex}
-import info.gianlucacosta.eighthbridge.graphs.Vertex
-import info.gianlucacosta.eighthbridge.graphs.directed.{Arc, DirectedGraph}
+import info.gianlucacosta.eighthbridge.fx.graph.{VisualGraph, VisualVertex}
+import info.gianlucacosta.eighthbridge.graphs.{Link, Vertex}
+import info.gianlucacosta.eighthbridge.graphs.directed.DirectedGraph
 
 import scala.annotation.tailrec
 
 /**
  * Interactive lightweight algorithm, based on the VisualGraph drawn by the user
  */
-//TODO! Use Link instead of Arc?
-trait Algorithm[V <: Vertex, A <: Arc, G <: DirectedGraph[V, A]] {
+trait Algorithm[V <: Vertex, L <: Link, G <: DirectedGraph[V, L]] {
   /**
    * Executes a step of the algorithm.
    *

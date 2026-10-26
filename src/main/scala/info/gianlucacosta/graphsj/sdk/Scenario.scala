@@ -1,9 +1,9 @@
 package info.gianlucacosta.graphsj.sdk
 
 import info.gianlucacosta.eighthbridge.fx.GraphCanvasController
-import info.gianlucacosta.eighthbridge.fx.graph.{VisualArc, VisualGraph, VisualVertex}
-import info.gianlucacosta.eighthbridge.graphs.Vertex
-import info.gianlucacosta.eighthbridge.graphs.directed.{Arc, DirectedGraph}
+import info.gianlucacosta.eighthbridge.fx.graph.{VisualGraph, VisualVertex}
+import info.gianlucacosta.eighthbridge.graphs.{Link, Vertex}
+import info.gianlucacosta.eighthbridge.graphs.directed.DirectedGraph
 
 /**
  * A descriptor for an interactive problem that can be plugged into the application.
@@ -16,8 +16,8 @@ import info.gianlucacosta.eighthbridge.graphs.directed.{Arc, DirectedGraph}
  */
 trait Scenario[
   V <: Vertex,
-  A <: Arc, //TODO! Use Link instead of Arc?
-  G <: DirectedGraph[V, A]
+  L <: Link,
+  G <: DirectedGraph[V, L]
 ] {
   /**
    * Scenario name, as shown in the "Scenario name" dialog. Can be different from the name
@@ -83,7 +83,7 @@ trait Scenario[
    *
    * @return The algorithm instance for a single execution
    */
-  def createAlgorithm(): Algorithm[V, A, G]
+  def createAlgorithm(): Algorithm[V, L, G]
 
 
   /**
