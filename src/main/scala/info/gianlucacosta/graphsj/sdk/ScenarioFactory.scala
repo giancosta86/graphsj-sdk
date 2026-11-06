@@ -17,7 +17,7 @@ trait ScenarioFactory {
    *
    * @return The scenario
    */
-  def createScenario: Option[Scenario[_, _, _]]
+  def createScenario: Option[Scenario]
 
 
   override def toString: String =

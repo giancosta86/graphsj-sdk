@@ -14,11 +14,7 @@ import info.gianlucacosta.eighthbridge.graphs.directed.DirectedGraph
  * factories in a JAR file, to be deployed to GraphsJ's scenarios directory.
  *
  */
-trait Scenario[
-  V <: Vertex,
-  L <: Link,
-  G <: DirectedGraph[V, L]
-] {
+trait Scenario {
   /**
    * Scenario name, as shown in the "Scenario name" dialog. Can be different from the name
    * provided by the related ScenarioFactory.
@@ -40,7 +36,7 @@ trait Scenario[
    *
    * @param designGraph The design graph
    */
-  def showSettings(designGraph: G): Option[G]
+  def showSettings(designGraph: VisualGraph): Option[VisualGraph]
 
   /**
    * Creates the design graph, which must be a VisualGraph.
@@ -83,7 +79,7 @@ trait Scenario[
    *
    * @return The algorithm instance for a single execution
    */
-  def createAlgorithm(): Algorithm[V, L, G]
+  def createAlgorithm(): Algorithm
 
 
   /**

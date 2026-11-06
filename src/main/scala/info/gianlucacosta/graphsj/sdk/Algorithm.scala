@@ -9,7 +9,7 @@ import scala.annotation.tailrec
 /**
  * Interactive lightweight algorithm, based on the VisualGraph drawn by the user
  */
-trait Algorithm[V <: Vertex, L <: Link, G <: DirectedGraph[V, L]] {
+trait Algorithm {
   /**
    * Executes a step of the algorithm.
    *
@@ -31,9 +31,9 @@ trait Algorithm[V <: Vertex, L <: Link, G <: DirectedGraph[V, L]] {
    */
   def runStep(
                stepIndex: Int,
-               graph: G,
+               graph: VisualGraph,
                console: OutputConsole
-             ): (G, Boolean)
+             ): (VisualGraph, Boolean)
 
 
   /**
@@ -43,13 +43,13 @@ trait Algorithm[V <: Vertex, L <: Link, G <: DirectedGraph[V, L]] {
    * @param console The output console
    * @return The graph returned by the last algorithm iteration
    */
-  def fullRun(graph: G, console: OutputConsole): G = {
+  def fullRun(graph: VisualGraph, console: OutputConsole): VisualGraph = {
     fullRun(0, graph, console)._1
   }
 
 
   @tailrec
-  private def fullRun(stepIndex: Int, graph: G, console: OutputConsole): (G, Boolean) = {
+  private def fullRun(stepIndex: Int, graph: VisualGraph, console: OutputConsole): (VisualGraph, Boolean) = {
     val (newGraph, theAlgorithmContinues) =
       runStep(stepIndex, graph, console)
 
