@@ -10,5 +10,7 @@ object NopOutputConsole extends OutputConsole {
 
   override def writeln(): Unit = {}
 
+  override def writeln(description: String, value: Any): Unit = {}
+
   override def writeHeader(header: String): Unit = {}
 }
