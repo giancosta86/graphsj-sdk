@@ -43,7 +43,7 @@ trait Algorithm {
    * @param console The output console
    * @return The graph returned by the last algorithm iteration
    */
-  def fullRun(graph: VisualGraph, console: OutputConsole): VisualGraph = {
+  final def fullRun(graph: VisualGraph, console: OutputConsole): VisualGraph = {
     fullRun(0, graph, console)._1
   }
 
