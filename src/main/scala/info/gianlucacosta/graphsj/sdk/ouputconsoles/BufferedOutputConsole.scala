@@ -16,9 +16,10 @@ class BufferedOutputConsole extends OutputConsole {
     stringBuilder.append(value)
 
 
-  override def writeln(value: Any): Unit =
-    stringBuilder.append(s"${value}\n")
-
+  override def writeln(value: Any): Unit = {
+    stringBuilder.append(value)
+    stringBuilder.append("\n")
+  }
 
   override def writeln(): Unit =
     stringBuilder.append("\n")
