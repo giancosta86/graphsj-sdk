@@ -1,4 +1,6 @@
-package info.gianlucacosta.graphsj.sdk
+package info.gianlucacosta.graphsj.sdk.ouputconsoles
+
+import info.gianlucacosta.graphsj.sdk.OutputConsole
 
 /**
  * OutputConsole implementation whose text can be inspected.

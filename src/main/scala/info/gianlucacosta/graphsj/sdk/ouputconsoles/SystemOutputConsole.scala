@@ -1,9 +1,11 @@
-package info.gianlucacosta.graphsj.sdk
+package info.gianlucacosta.graphsj.sdk.ouputconsoles
+
+import info.gianlucacosta.graphsj.sdk.OutputConsole
 
 /**
  * OutputConsole implementation writing to the standard output
  */
-object SystemOutConsole extends OutputConsole {
+object SystemOutputConsole extends OutputConsole {
   override def write(value: Any): Unit =
     print(value)
 
