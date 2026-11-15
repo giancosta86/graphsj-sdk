@@ -1,6 +1,6 @@
 package info.gianlucacosta.graphsj.sdk
 
-import info.gianlucacosta.eighthbridge.fx.graph.{VisualGraph, VisualVertex}
+import info.gianlucacosta.eighthbridge.fx.{VisualGraph, VisualVertex}
 import info.gianlucacosta.eighthbridge.graphs.{Link, Vertex}
 import info.gianlucacosta.eighthbridge.graphs.directed.DirectedGraph
 
