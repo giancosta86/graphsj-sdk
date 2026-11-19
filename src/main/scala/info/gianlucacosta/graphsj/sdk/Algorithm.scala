@@ -1,8 +1,6 @@
 package info.gianlucacosta.graphsj.sdk
 
-import info.gianlucacosta.eighthbridge.fx.{VisualGraph, VisualVertex}
-import info.gianlucacosta.eighthbridge.graphs.{Link, Vertex}
-import info.gianlucacosta.eighthbridge.graphs.directed.DirectedGraph
+import info.gianlucacosta.eighthbridge.fx.VisualGraph
 
 import scala.annotation.tailrec
 
